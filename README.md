@@ -66,3 +66,5 @@ The main goal of Career DNA Analyzer is to help students identify suitable caree
 - Internship recommendations
 - Job recommendations
 - Integration with external AI services
+This change was made on my feature branch.
+This change was made on my feature branch.
