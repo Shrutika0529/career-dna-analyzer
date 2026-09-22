@@ -22,6 +22,7 @@ The system uses a career assessment consisting of multiple questions and analyze
 
 - Java
 - Spring Boot
+- Spring Data JPA
 - MySQL
 - HTML
 - CSS
