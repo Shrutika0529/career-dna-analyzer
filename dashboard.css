@@ -1,0 +1,879 @@
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI";
+
+}
+
+
+
+body{
+
+    min-height:100vh;
+
+    color:white;
+
+}
+
+
+
+.ai-bg{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+            radial-gradient(circle at top,#00e5ff,transparent 35%),
+
+            radial-gradient(circle at bottom,#7c4dff,transparent 40%),
+
+            linear-gradient(135deg,#020024,#090979);
+
+
+    z-index:-1;
+
+}
+
+
+
+
+header{
+
+    height:80px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 60px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(20px);
+
+
+}
+
+
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+
+
+nav a{
+
+    color:white;
+
+    margin-left:30px;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+}
+
+
+
+
+.dashboard-container{
+
+    padding:50px;
+
+}
+
+
+
+.welcome-card{
+
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    padding:40px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+
+}
+
+
+
+.robot{
+
+    font-size:70px;
+
+    animation:float 3s infinite;
+
+}
+
+
+
+@keyframes float{
+
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+
+}
+
+
+
+
+
+.feature-grid{
+
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:40px;
+
+
+}
+
+
+
+
+.feature-card{
+
+
+    background:rgba(255,255,255,.15);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    transition:.4s;
+
+
+}
+
+
+
+.feature-card:hover{
+
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px black;
+
+
+}
+
+
+
+.feature-card div{
+
+
+    font-size:50px;
+
+}
+
+
+
+.feature-card button{
+
+
+    margin-top:20px;
+
+    padding:15px 25px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#00e5ff;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+
+}
+
+
+
+
+@media(max-width:900px){
+
+    .feature-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+/* ===== Add Question Input Design ===== */
+
+.feature-card input[type="text"]{
+
+    width: 100%;
+
+    max-width: 520px;
+
+    height: 55px;
+
+    padding: 0 20px;
+
+    margin: 15px auto;
+
+    display: block;
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(255,255,255,0.4);
+
+    background: rgba(255,255,255,0.18);
+
+    backdrop-filter: blur(10px);
+
+    color:white;
+
+    font-size:18px;
+
+    transition:0.3s;
+
+}
+
+
+/* Placeholder */
+
+.feature-card input::placeholder{
+
+    color:#eeeeee;
+
+    font-size:16px;
+
+}
+
+
+/* When clicking textbox */
+
+.feature-card input:focus{
+
+    outline:none;
+
+    border:2px solid #00e5ff;
+
+    box-shadow:
+            0 0 15px rgba(0,229,255,0.8);
+
+    transform:scale(1.02);
+
+}
+
+
+
+/* Question heading */
+
+.feature-card h2{
+
+    color:white;
+
+    font-size:30px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* Save button improvement */
+
+.feature-card button{
+
+    width:220px;
+
+    height:55px;
+
+    border-radius:30px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+/* ===== View Questions Card Design ===== */
+
+.question-card{
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    margin:25px auto;
+
+    width:90%;
+
+    text-align:left;
+
+}
+
+
+/* Question title */
+
+.question-card h2{
+
+    color:#00e5ff;
+
+    font-size:28px;
+
+    margin-bottom:20px;
+
+}
+
+
+/* Question text */
+
+.question-card .question-text{
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* Options */
+
+.question-card .options{
+
+    color:#eeeeee;
+
+    font-size:18px;
+
+    line-height:35px;
+
+}
+
+
+
+/* Right side buttons */
+
+.question-actions{
+
+    position:absolute;
+
+    right:50px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+.question-card{
+
+    position:relative;
+
+}
+
+
+
+/* Edit button */
+
+.edit-btn{
+
+    width:150px;
+
+    height:50px;
+
+    border-radius:25px;
+
+    background:#00d9ff;
+
+    border:none;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+
+/* Delete button */
+
+.delete-btn{
+
+    width:150px;
+
+    height:50px;
+
+    border-radius:25px;
+
+    background:#ff3838;
+
+    border:none;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+
+.edit-btn:hover{
+
+    box-shadow:0 0 20px #00e5ff;
+
+}
+
+
+
+.delete-btn:hover{
+
+    box-shadow:0 0 20px red;
+
+}
+
+
+/* Mobile */
+
+@media(max-width:700px){
+
+    .question-actions{
+
+        position:static;
+
+        transform:none;
+
+        margin-top:20px;
+
+        flex-direction:row;
+
+    }
+
+}
+/* ===== View Questions Design ===== */
+
+
+.question-list{
+
+    width:90%;
+
+    margin:20px auto;
+
+}
+
+
+
+.question-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,0.3);
+
+}
+
+
+
+/* Question left side */
+
+.question-text{
+
+    width:75%;
+
+    font-size:18px;
+
+}
+
+
+
+/* Edit/Delete right side */
+
+.question-actions{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+
+
+.question-actions button{
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:15px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+}
+
+
+
+.edit-btn{
+
+    background:#00c6ff;
+
+}
+
+
+
+.delete-btn{
+
+    background:#ff4b5c;
+
+}
+
+
+
+.question-actions button:hover{
+
+    transform:scale(1.05);
+
+}
+/* ===== Registered Students AI UI ===== */
+
+
+.student-card{
+
+    overflow-x:auto;
+
+}
+
+
+
+.student-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    color:white;
+
+}
+
+
+
+.student-table th{
+
+    padding:18px;
+
+    background:rgba(0,0,0,0.25);
+
+    font-size:18px;
+
+}
+
+
+
+.student-table td{
+
+    padding:16px;
+
+    text-align:center;
+
+    border-bottom:1px solid rgba(255,255,255,0.2);
+
+    font-size:16px;
+
+}
+
+
+
+.student-table tr:hover{
+
+    background:rgba(255,255,255,0.15);
+
+    transform:scale(1.01);
+
+}
+
+
+
+.student-table th:first-child{
+
+    border-radius:15px 0 0 0;
+
+}
+
+
+
+.student-table th:last-child{
+
+    border-radius:0 15px 0 0;
+
+}
+
+
+
+.back-btn{
+
+    width:220px;
+
+    height:50px;
+
+    margin:25px auto;
+
+    display:block;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+}
+
+
+
+.back-btn:hover{
+
+    box-shadow:0 0 20px #00c6ff;
+
+}
+/* ===== Register Card ===== */
+
+.register-card{
+
+    max-width:550px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.register-card input{
+
+    width:100%;
+
+    max-width:450px;
+
+    height:55px;
+
+    margin:15px auto;
+
+    display:block;
+
+    padding:0 20px;
+
+    border-radius:15px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+    font-size:17px;
+
+}
+
+.register-card input::placeholder{
+
+    color:#eee;
+
+}
+
+.register-card input:focus{
+
+    outline:none;
+
+    border:2px solid #00e5ff;
+
+    box-shadow:0 0 15px rgba(0,229,255,.6);
+
+}
+
+.register-card button{
+
+    width:220px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:30px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.register-card button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 0 20px #00c6ff;
+
+}
+/* ===== Login Card ===== */
+
+.login-card{
+
+    max-width:550px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.login-card input{
+
+    width:100%;
+
+    max-width:450px;
+
+    height:55px;
+
+    margin:15px auto;
+
+    display:block;
+
+    padding:0 20px;
+
+    border-radius:15px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+    font-size:17px;
+
+    transition:.3s;
+
+}
+
+.login-card input::placeholder{
+
+    color:#eee;
+
+}
+
+.login-card input:focus{
+
+    outline:none;
+
+    border:2px solid #00e5ff;
+
+    box-shadow:0 0 15px rgba(0,229,255,.7);
+
+    transform:scale(1.02);
+
+}
+
+.login-card button{
+
+    width:220px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:30px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+
+    transition:.3s;
+
+}
+
+.login-card button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 0 20px #00c6ff;
+
+}
