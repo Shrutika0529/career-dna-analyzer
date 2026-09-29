@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Career Roadmap | Career DNA AI</title>
+
+    <link rel="stylesheet"
+          href="css/dashboard.css">
+
+    <style>
+
+        .roadmap-page {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .roadmap-header {
+            text-align: center;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 25px;
+        }
+
+        .roadmap-header .robot {
+            font-size: 55px;
+        }
+
+        .roadmap-header h1 {
+            margin: 10px 0;
+        }
+
+        .roadmap-header p {
+            margin: 5px;
+        }
+
+        .roadmap-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .roadmap-card {
+            padding: 25px;
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.08);
+
+            border: 1px solid
+            rgba(255,255,255,0.15);
+
+            box-shadow:
+                    0 10px 30px rgba(0,0,0,0.15);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .roadmap-card h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .roadmap-content {
+            white-space: pre-line;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 18px;
+        }
+
+        .error-box {
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(255,0,0,0.08);
+        }
+
+        .back-btn {
+            display: block;
+            margin: 35px auto;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           FLOATING AI BUTTON
+        ========================================= */
+
+        .career-ai-button {
+
+            position: fixed;
+
+            left: 25px;
+            bottom: 25px;
+
+            width: 68px;
+            height: 68px;
+
+            border-radius: 50%;
+
+            border: 2px solid #00ffff;
+
+            background:
+                    radial-gradient(
+                            circle,
+                            #182b52,
+                            #050816
+                    );
+
+            color: white;
+
+            font-size: 30px;
+
+            cursor: pointer;
+
+            z-index: 9999;
+
+            box-shadow:
+                    0 0 15px #00ffff,
+                    0 0 40px rgba(0,255,255,0.3);
+
+        }
+
+
+        .career-ai-button:hover {
+
+            transform: scale(1.1);
+
+        }
+
+
+        /* =========================================
+           AI PANEL
+        ========================================= */
+
+        .career-ai-panel {
+
+            position: fixed;
+
+            left: 25px;
+            bottom: 105px;
+
+            width: 390px;
+            height: 600px;
+
+            display: none;
+
+            flex-direction: column;
+
+            overflow: hidden;
+
+            border-radius: 24px;
+
+            background:
+                    linear-gradient(
+                            145deg,
+                            #0a142d,
+                            #040817
+                    );
+
+            border:
+                    1px solid rgba(0,255,255,0.4);
+
+            box-shadow:
+                    0 0 40px rgba(0,255,255,0.25);
+
+            z-index: 9998;
+
+        }
+
+
+        .career-ai-panel.active {
+
+            display: flex;
+
+        }
+
+
+        .ai-panel-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 18px;
+
+            background:
+                    rgba(0,255,255,0.08);
+
+        }
+
+
+        .ai-profile {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .ai-avatar {
+
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 14px;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            #00ffff,
+                            #6c5ce7
+                    );
+
+            font-size: 25px;
+
+        }
+
+
+        .ai-profile h3 {
+
+            margin: 0;
+
+            color: white;
+
+        }
+
+
+        .ai-profile span {
+
+            color: #62ffcf;
+
+            font-size: 11px;
+
+        }
+
+
+        .ai-close {
+
+            background: none;
+
+            border: none;
+
+            color: white;
+
+            font-size: 28px;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =========================================
+           QUICK QUESTIONS
+        ========================================= */
+
+        .quick-section {
+
+            padding: 12px;
+
+        }
+
+
+        .quick-title {
+
+            color: #9da9ff;
+
+            font-size: 12px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .quick-buttons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 6px;
+
+        }
+
+
+        .quick-buttons button {
+
+            padding: 7px 10px;
+
+            border-radius: 20px;
+
+            border:
+                    1px solid
+                    rgba(0,255,255,0.3);
+
+            background:
+                    rgba(0,255,255,0.06);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 10px;
+
+        }
+
+
+        /* =========================================
+           CHAT
+        ========================================= */
+
+        .chat-messages {
+
+            flex: 1;
+
+            overflow-y: auto;
+
+            padding: 15px;
+
+        }
+
+
+        .ai-message {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .user-message {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .message-bubble {
+
+            max-width: 80%;
+
+            padding: 12px;
+
+            border-radius: 15px;
+
+            background:
+                    rgba(255,255,255,0.08);
+
+            color: white;
+
+            line-height: 1.5;
+
+            font-size: 13px;
+
+        }
+
+
+        .user-bubble {
+
+            max-width: 80%;
+
+            padding: 12px;
+
+            border-radius: 15px;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            #006dff,
+                            #703cff
+                    );
+
+            color: white;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =========================================
+           INPUT
+        ========================================= */
+
+        .ai-input {
+
+            display: flex;
+
+            gap: 8px;
+
+            padding: 12px;
+
+            border-top:
+                    1px solid
+                    rgba(255,255,255,0.1);
+
+        }
+
+
+        .ai-input input {
+
+            flex: 1;
+
+            padding: 11px;
+
+            border-radius: 20px;
+
+            border:
+                    1px solid
+                    rgba(0,255,255,0.25);
+
+            background:
+                    rgba(255,255,255,0.06);
+
+            color: white;
+
+            outline: none;
+
+        }
+
+
+        .ai-input button {
+
+            width: 42px;
+            height: 42px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                    linear-gradient(
+                            135deg,
+                            #00d4ff,
+                            #7048ff
+                    );
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+        }
+
+
+        @media(max-width:600px) {
+
+            .career-ai-panel {
+
+                left: 10px;
+                right: 10px;
+
+                width: auto;
+
+                height: 70vh;
+
+            }
+
+            .career-ai-button {
+
+                left: 15px;
+                bottom: 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="ai-bg"></div>
+<style>
+    .ai-bg {
+        z-index: -1 !important;
+    }
+
+    header {
+        position: relative;
+        z-index: 10;
+    }
+
+    .roadmap-page {
+        position: relative;
+        z-index: 5;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        color: white;
+    }
+
+    .roadmap-header {
+        position: relative;
+        z-index: 5;
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    .roadmap-timeline {
+        position: relative;
+        z-index: 5;
+        display: flex !important;
+        visibility: visible !important;
+    }
+
+    .roadmap-card {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        color: white;
+    }
+</style>
+
+
+<header>
+
+    <div class="logo">
+        🤖 Career DNA AI
+    </div>
+
+    <nav>
+
+        <a href="student.html">
+            Dashboard
+        </a>
+
+        <a href="career-chat.html">
+            Career AI
+        </a>
+
+        <a href="javascript:logout()">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================
+     ROADMAP
+========================================= -->
+
+<div class="roadmap-page">
+
+
+    <div class="welcome-card roadmap-header">
+
+        <div class="robot">
+            🎯
+        </div>
+
+        <h1 id="careerName">
+            Loading Career Roadmap...
+        </h1>
+
+        <p id="duration">
+            Please wait...
+        </p>
+
+    </div>
+
+
+    <div
+            id="roadmapContainer"
+            class="roadmap-timeline">
+
+        <div class="loading">
+
+            ⏳ Loading your personalized roadmap...
+
+        </div>
+
+    </div>
+
+
+    <button
+            class="back-btn"
+            onclick="window.location.href='student.html'">
+
+        ⬅ Back to Dashboard
+
+    </button>
+
+</div>
+
+
+
+<!-- =========================================
+     AI CHATBOT
+========================================= -->
+
+<div
+        id="careerAiPanel"
+        class="career-ai-panel">
+
+
+    <div class="ai-panel-header">
+
+        <div class="ai-profile">
+
+            <div class="ai-avatar">
+                🤖
+            </div>
+
+            <div>
+
+                <h3>
+                    Career DNA AI
+                </h3>
+
+                <span>
+                    ● Online • Career Assistant
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button
+                class="ai-close"
+                onclick="toggleCareerAI()">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <div class="quick-section">
+
+        <div class="quick-title">
+
+            ✨ Quick Questions
+
+        </div>
+
+
+        <div class="quick-buttons">
+
+            <button
+                    onclick="askQuick('What career is best for me?')">
+
+                🎯 Career
+
+            </button>
+
+
+            <button
+                    onclick="askQuick('What skills should I learn for placement?')">
+
+                💼 Placement
+
+            </button>
+
+
+            <button
+                    onclick="askQuick('How can I get an internship?')">
+
+                🚀 Internship
+
+            </button>
+
+
+            <button
+                    onclick="askQuick('What should I learn for my branch?')">
+
+                🎓 Branch
+
+            </button>
+
+
+            <button
+                    onclick="askQuick('How should I prepare my resume?')">
+
+                📄 Resume
+
+            </button>
+
+
+            <button
+                    onclick="askQuick('What should I learn in DSA?')">
+
+                🧠 DSA
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+            id="chatMessages"
+            class="chat-messages">
+
+        <div class="ai-message">
+
+            <div>
+                🤖
+            </div>
+
+            <div class="message-bubble">
+
+                <strong>
+                    Hello! 👋
+                </strong>
+
+                <br><br>
+
+                I'm your Career DNA AI assistant.
+
+                <br><br>
+
+                Ask me anything about your
+                career, skills, placements,
+                internships and roadmap.
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="ai-input">
+
+        <input
+                type="text"
+                id="roadmapAiInput"
+                placeholder="Ask Career DNA AI..."
+                autocomplete="off"
+        >
+
+        <button
+                type="button"
+                onclick="sendRoadmapAI()">
+
+            ➤
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<button
+        class="career-ai-button"
+        onclick="toggleCareerAI()">
+
+    🤖
+
+</button>
+
+
+
+<script>
+
+
+    /* =========================================
+       LOAD ROADMAP
+    ========================================= */
+
+    async function loadRoadmap() {
+
+        const container =
+            document.getElementById(
+                "roadmapContainer"
+            );
+
+        const careerName =
+            document.getElementById(
+                "careerName"
+            );
+
+        const duration =
+            document.getElementById(
+                "duration"
+            );
+
+
+        try {
+
+            const studentId = 1;
+
+
+            console.log(
+                "Loading roadmap for student:",
+                studentId
+            );
+
+
+            const response =
+                await fetch(
+                    "/api/roadmap/latest/" +
+                    studentId
+                );
+
+
+            console.log(
+                "Roadmap HTTP status:",
+                response.status
+            );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Roadmap HTTP " +
+                    response.status
+                );
+
+            }
+
+
+            const roadmap =
+                await response.json();
+
+
+            console.log(
+                "ROADMAP DATA:",
+                roadmap
+            );
+
+
+            careerName.innerText =
+                "🎯 " +
+                roadmap.careerName;
+
+
+            duration.innerText =
+                "⏳ Duration: " +
+                roadmap.duration;
+
+
+            container.innerHTML = "";
+
+
+            const text =
+                roadmap.roadmapData;
+
+
+            /*
+             * Split by MONTH.
+             */
+
+            const months =
+                text.split(
+                    /(?=MONTH\s+\d+\s*:)/i
+                );
+
+
+            months.forEach(
+                function(month) {
+
+                    if (
+                        month.trim() === ""
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    card.className =
+                        "roadmap-card";
+
+
+                    const lines =
+                        month
+                            .trim()
+                            .split("\n");
+
+
+                    const title =
+                        lines.shift();
+
+
+                    const content =
+                        lines.join("\n");
+
+
+                    card.innerHTML = `
+
+                    <h2>
+                        📅 ${title}
+                    </h2>
+
+                    <div class="roadmap-content">
+                        ${escapeHtml(content)}
+                    </div>
+
+                `;
+
+
+                    container.appendChild(card);
+
+                }
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "ROADMAP ERROR:",
+                error
+            );
+
+
+            container.innerHTML = `
+
+            <div class="error-box">
+
+                ❌ Could not load roadmap.
+
+                <br><br>
+
+                ${escapeHtml(
+                error.message
+            )}
+
+                <br><br>
+
+                <button
+                    onclick="loadRoadmap()">
+
+                    🔄 Try Again
+
+                </button>
+
+            </div>
+
+        `;
+
+        }
+
+    }
+
+
+    /* =========================================
+       OPEN / CLOSE CHATBOT
+    ========================================= */
+
+    function toggleCareerAI() {
+
+        const panel =
+            document.getElementById(
+                "careerAiPanel"
+            );
+
+
+        panel.classList.toggle(
+            "active"
+        );
+
+    }
+
+
+    /* =========================================
+       QUICK QUESTIONS
+    ========================================= */
+
+    function askQuick(question) {
+
+        const input =
+            document.getElementById(
+                "roadmapAiInput"
+            );
+
+
+        input.value =
+            question;
+
+
+        sendRoadmapAI();
+
+    }
+
+
+    /* =========================================
+       SEND AI QUESTION
+    ========================================= */
+
+    async function sendRoadmapAI() {
+
+        const input =
+            document.getElementById(
+                "roadmapAiInput"
+            );
+
+
+        const messages =
+            document.getElementById(
+                "chatMessages"
+            );
+
+
+        const question =
+            input.value.trim();
+
+
+        if (!question) {
+
+            return;
+
+        }
+
+
+        /* USER MESSAGE */
+
+        const user =
+            document.createElement(
+                "div"
+            );
+
+
+        user.className =
+            "user-message";
+
+
+        user.innerHTML = `
+
+        <div class="user-bubble">
+
+            ${escapeHtml(question)}
+
+        </div>
+
+    `;
+
+
+        messages.appendChild(
+            user
+        );
+
+
+        input.value = "";
+
+
+        messages.scrollTop =
+            messages.scrollHeight;
+
+
+        /* THINKING */
+
+        const thinking =
+            document.createElement(
+                "div"
+            );
+
+
+        thinking.className =
+            "ai-message";
+
+
+        thinking.id =
+            "thinking";
+
+
+        thinking.innerHTML = `
+
+        <div>
+            🤖
+        </div>
+
+        <div class="message-bubble">
+
+            ✨ Career DNA AI is thinking...
+
+        </div>
+
+    `;
+
+
+        messages.appendChild(
+            thinking
+        );
+
+
+        messages.scrollTop =
+            messages.scrollHeight;
+
+
+        try {
+
+            const response =
+                await fetch(
+                    "/api/career-chat/ask",
+                    {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify({
+                                question:
+                                question
+                            })
+
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "AI HTTP " +
+                    response.status
+                );
+
+            }
+
+
+            const data =
+                await response.json();
+
+
+            thinking.remove();
+
+
+            const ai =
+                document.createElement(
+                    "div"
+                );
+
+
+            ai.className =
+                "ai-message";
+
+
+            ai.innerHTML = `
+
+            <div>
+                🤖
+            </div>
+
+            <div class="message-bubble">
+
+                ${formatAnswer(
+                data.answer ||
+                "I could not generate an answer."
+            )}
+
+            </div>
+
+        `;
+
+
+            messages.appendChild(
+                ai
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "AI ERROR:",
+                error
+            );
+
+
+            thinking.remove();
+
+
+            const ai =
+                document.createElement(
+                    "div"
+                );
+
+
+            ai.className =
+                "ai-message";
+
+
+            ai.innerHTML = `
+
+            <div>
+                ⚠️
+            </div>
+
+            <div class="message-bubble">
+
+                Sorry, I couldn't connect
+                to Career DNA AI.
+
+            </div>
+
+        `;
+
+
+            messages.appendChild(
+                ai
+            );
+
+        }
+
+
+        messages.scrollTop =
+            messages.scrollHeight;
+
+    }
+
+
+    /* =========================================
+       ENTER KEY
+    ========================================= */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function() {
+
+            loadRoadmap();
+
+
+            const input =
+                document.getElementById(
+                    "roadmapAiInput"
+                );
+
+
+            if (input) {
+
+                input.addEventListener(
+                    "keydown",
+                    function(event) {
+
+                        if (
+                            event.key === "Enter"
+                        ) {
+
+                            event.preventDefault();
+
+                            sendRoadmapAI();
+
+                        }
+
+                    }
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       HTML ESCAPE
+    ========================================= */
+
+    function escapeHtml(text) {
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+
+        div.textContent =
+            text || "";
+
+
+        return div.innerHTML;
+
+    }
+
+
+    /* =========================================
+       FORMAT ANSWER
+    ========================================= */
+
+    function formatAnswer(text) {
+
+        return escapeHtml(text)
+            .replace(
+                /\n/g,
+                "<br>"
+            );
+
+    }
+
+
+    /* =========================================
+       LOGOUT
+    ========================================= */
+
+    function logout() {
+
+        localStorage.clear();
+
+        sessionStorage.clear();
+
+        window.location.href =
+            "login.html";
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

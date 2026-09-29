@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Career DNA AI | Career Mapping</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+<div class="ai-bg"></div>
+
+
+<header>
+
+    <div class="logo">
+        &#129302; Career DNA AI
+    </div>
+
+    <nav>
+
+        <a href="admin-dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="view-questions.html">
+            Questions
+        </a>
+
+        <a onclick="logout()">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<div class="dashboard-container">
+
+
+    <div class="welcome-card">
+
+        <div class="robot">
+            &#127919;
+        </div>
+
+        <h1>
+            Career Mapping
+        </h1>
+
+        <p>
+            Connect assessment answers with career recommendations.
+        </p>
+
+    </div>
+
+
+
+
+    <div class="feature-card">
+
+
+        <h2>
+            Add Career Mapping
+        </h2>
+
+
+
+        <input
+                type="number"
+                id="questionId"
+                placeholder="Enter Question ID">
+
+
+
+        <br><br>
+
+
+
+        <select id="optionSelected">
+
+            <option value="">
+                Select Option
+            </option>
+
+            <option value="A">
+                Option A
+            </option>
+
+            <option value="B">
+                Option B
+            </option>
+
+            <option value="C">
+                Option C
+            </option>
+
+            <option value="D">
+                Option D
+            </option>
+
+        </select>
+
+
+
+        <br><br>
+
+
+
+        <input
+                type="text"
+                id="careerName"
+                placeholder="Enter Career Name">
+
+
+
+        <br><br>
+
+
+
+        <input
+                type="number"
+                id="score"
+                placeholder="Enter Score">
+
+
+
+        <br><br>
+
+
+
+        <button onclick="saveMapping()">
+
+            &#127919; Save Mapping
+
+        </button>
+
+
+    </div>
+
+
+
+
+    <div class="feature-card">
+
+
+        <h2>
+            Existing Career Mappings
+        </h2>
+
+
+        <div id="mappingList">
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+<script src="js/career-mapping.js"></script>
+
+
+</body>
+
+</html>

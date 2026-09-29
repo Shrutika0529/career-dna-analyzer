@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Career DNA AI | Registered Students</title>
+
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<div class="ai-bg"></div>
+
+
+
+<header>
+
+    <div class="logo">
+        🤖 Career DNA AI
+    </div>
+
+
+    <nav>
+
+        <a href="admin-dashboard.html">
+            Dashboard
+        </a>
+
+
+        <a href="admin.html">
+            Add Question
+        </a>
+
+
+        <a onclick="logout()">
+            Logout
+        </a>
+
+
+    </nav>
+
+
+</header>
+
+
+
+
+
+<div class="dashboard-container">
+
+
+
+    <div class="welcome-card">
+
+
+        <div class="robot">
+            👥
+        </div>
+
+
+        <h1>
+            Registered Students
+        </h1>
+
+
+        <p>
+            Manage and analyze all registered Career DNA AI users.
+        </p>
+
+
+    </div>
+
+
+
+
+
+    <div class="feature-card">
+
+
+        <input
+                type="text"
+                id="searchStudent"
+                placeholder="🔍 Search Student..."
+        >
+
+
+    </div>
+
+
+
+
+
+    <div class="feature-card student-card">
+
+
+        <table class="student-table">
+
+
+            <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Full Name</th>
+
+                <th>Email</th>
+
+                <th>Role</th>
+
+            </tr>
+
+
+            </thead>
+
+
+
+            <tbody id="studentTable">
+
+
+            </tbody>
+
+
+
+        </table>
+
+
+    </div>
+
+
+
+
+
+    <button class="back-btn"
+            onclick="window.location.href='admin-dashboard.html'">
+
+        ⬅ Back Dashboard
+
+    </button>
+
+
+
+</div>
+
+
+
+
+
+<script src="js/students.js"></script>
+
+
+</body>
+
+</html>

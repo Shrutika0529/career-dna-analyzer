@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Career DNA AI | Add Question</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body>
+
+<div class="ai-bg"></div>
+
+<header>
+
+    <div class="logo">
+        &#129302; Career DNA AI
+    </div>
+
+    <nav>
+
+        <a href="admin-dashboard.html">
+            Dashboard
+        </a>
+
+        <a onclick="logout()">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+<div class="dashboard-container">
+
+    <div class="welcome-card">
+
+        <div class="robot">
+            &#10133;
+        </div>
+
+        <h1>
+            Add Assessment Question
+        </h1>
+
+        <p>
+            Create AI assessment questions for students.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <h2>
+            Question Details
+        </h2>
+
+        <input
+                type="text"
+                id="question"
+                placeholder="Enter Question">
+
+        <br><br>
+
+        <input
+                type="text"
+                id="optionA"
+                placeholder="Option A">
+
+        <br><br>
+
+        <input
+                type="text"
+                id="optionB"
+                placeholder="Option B">
+
+        <br><br>
+
+        <input
+                type="text"
+                id="optionC"
+                placeholder="Option C">
+
+        <br><br>
+
+        <input
+                type="text"
+                id="optionD"
+                placeholder="Option D">
+
+        <br><br>
+
+        <button onclick="saveQuestion()">
+
+            &#10133; Save Question
+
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+    async function saveQuestion(){
+
+        const question=document.getElementById("question").value;
+
+        const optionA=document.getElementById("optionA").value;
+
+        const optionB=document.getElementById("optionB").value;
+
+        const optionC=document.getElementById("optionC").value;
+
+        const optionD=document.getElementById("optionD").value;
+
+        if(question===""){
+
+            alert("Enter Question");
+
+            return;
+
+        }
+
+        const response=await fetch("/api/admin/questions/add",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+
+                question:question,
+
+                optionA:optionA,
+
+                optionB:optionB,
+
+                optionC:optionC,
+
+                optionD:optionD
+
+            })
+
+        });
+
+        if(response.ok){
+
+            alert("Question Added Successfully ✅");
+
+            document.getElementById("question").value="";
+
+            document.getElementById("optionA").value="";
+
+            document.getElementById("optionB").value="";
+
+            document.getElementById("optionC").value="";
+
+            document.getElementById("optionD").value="";
+
+        }
+        else{
+
+            alert("Failed to Save Question");
+
+        }
+
+    }
+
+    function logout(){
+
+        localStorage.clear();
+
+        window.location.href="login.html";
+
+    }
+
+</script>
+
+</body>
+
+</html>

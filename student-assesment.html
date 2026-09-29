@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Career DNA AI | Assessment</title>
+
+    <link rel="stylesheet"
+          href="css/dashboard.css">
+
+</head>
+
+<body>
+
+<!-- Background -->
+<div class="ai-bg"></div>
+
+
+<!-- Header -->
+<header>
+
+    <div class="logo">
+        🤖 Career DNA AI
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="result.html">
+            My Result
+        </a>
+
+        <a href="#" onclick="logout()">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- Main -->
+<main>
+
+    <!-- Welcome -->
+    <div class="welcome-card">
+
+        <div class="robot">
+            🧠
+        </div>
+
+        <h1>
+            Career DNA Assessment
+        </h1>
+
+        <p>
+            Answer the following questions honestly
+            to discover your suitable career path.
+        </p>
+
+    </div>
+
+
+    <!-- Questions -->
+    <div id="questionContainer">
+
+        <h2 style="text-align:center;">
+            Loading questions...
+        </h2>
+
+    </div>
+
+
+    <!-- Submit -->
+    <div style="text-align:center; margin:30px;">
+
+        <button
+                class="back-btn"
+                type="button"
+                onclick="submitAnswers()">
+
+            🧠 Submit Assessment
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<!-- JavaScript -->
+<script src="js/student-assessment.js"></script>
+
+</body>
+
+</html>
+```

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Career DNA AI Admin Dashboard</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body>
+
+<div class="ai-bg"></div>
+
+<header>
+
+    <div class="logo">
+        &#129302; Career DNA AI
+    </div>
+
+    <nav>
+
+        <a href="admin-dashboard.html">
+            Dashboard
+        </a>
+
+        <a onclick="logout()">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+<div class="dashboard-container">
+
+    <div class="welcome-card">
+
+        <div class="robot">
+            &#129302;
+        </div>
+
+        <h1>
+            Welcome,
+            <span id="adminName">Admin</span>
+        </h1>
+
+        <p>
+            Manage the AI Career DNA Analyzer system from your admin dashboard.
+        </p>
+
+    </div>
+
+    <div class="feature-grid">
+
+        <!-- Add Question -->
+
+        <div class="feature-card">
+
+            <div>
+                &#10133;
+            </div>
+
+            <h2>
+                Add Question
+            </h2>
+
+            <p>
+                Create new assessment questions for students.
+            </p>
+
+            <button onclick="location.href='admin.html'">
+
+                Add Question
+
+            </button>
+
+        </div>
+
+        <!-- View Questions -->
+
+        <div class="feature-card">
+
+            <div>
+                &#128203;
+            </div>
+
+            <h2>
+                View Questions
+            </h2>
+
+            <p>
+                View, edit and manage all assessment questions.
+            </p>
+
+            <button onclick="location.href='view-questions.html'">
+
+                View Questions
+
+            </button>
+
+        </div>
+
+        <!-- Career Mapping -->
+
+        <div class="feature-card">
+
+            <div>
+                &#127919;
+            </div>
+
+            <h2>
+                Career Mapping
+            </h2>
+
+            <p>
+                Map answer options to career recommendations.
+            </p>
+
+            <button onclick="location.href='career-mapping.html'">
+
+                Open
+
+            </button>
+
+        </div>
+
+        <!-- Students -->
+
+        <div class="feature-card">
+
+            <div>
+                &#128104;&#8205;&#127891;
+            </div>
+
+            <h2>
+                Students
+            </h2>
+
+            <p>
+                View registered students and their information.
+            </p>
+
+            <button onclick="location.href='students.html'">
+
+                View Students
+
+            </button>
+
+        </div>
+
+        <!-- Results -->
+
+        <div class="feature-card">
+
+            <div>
+                &#128202;
+            </div>
+
+            <h2>
+                Results
+            </h2>
+
+            <p>
+                View AI generated recommendations and scores.
+            </p>
+
+            <button onclick="location.href='result.html'">
+
+                View Results
+
+            </button>
+
+        </div>
+
+        <!-- Logout -->
+
+        <div class="feature-card">
+
+            <div>
+                &#128682;
+            </div>
+
+            <h2>
+                Logout
+            </h2>
+
+            <p>
+                Sign out from the administrator account.
+            </p>
+
+            <button onclick="logout()">
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/admin-dashboard.js"></script>
+
+</body>
+
+</html>

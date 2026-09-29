@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Career DNA AI | Career Report</title>
+
+    <link rel="stylesheet"
+          href="css/result.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     AI BACKGROUND
+===================================================== -->
+
+<div class="ai-background">
+
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+    <div class="glow glow-three"></div>
+
+    <div class="grid-overlay"></div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="top-header">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            🤖
+        </div>
+
+        <div>
+            <strong>Career DNA AI</strong>
+            <span>Intelligent Career System</span>
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="#"
+           onclick="logout(); return false;">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main-container">
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero-section">
+
+        <div class="ai-orb">
+
+            <div class="orb-core">
+                AI
+            </div>
+
+            <div class="orb-ring ring-one"></div>
+            <div class="orb-ring ring-two"></div>
+            <div class="orb-ring ring-three"></div>
+
+        </div>
+
+
+        <div class="hero-content">
+
+            <div class="status-badge">
+
+                <span></span>
+
+                AI ANALYSIS COMPLETE
+
+            </div>
+
+
+            <h1>
+                Your Career DNA
+                <span>Report</span>
+            </h1>
+
+
+            <p>
+                Our AI analyzed your interests, abilities,
+                answers and career preferences to identify
+                your strongest career pathways.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         RECOMMENDED CAREER
+    ================================================== -->
+
+    <section class="career-main-card">
+
+        <div class="card-top">
+
+            <div>
+
+                <span class="small-label">
+                    AI RECOMMENDATION
+                </span>
+
+                <h2 id="careerName">
+                    Loading...
+                </h2>
+
+                <p>
+                    Your strongest career match
+                </p>
+
+            </div>
+
+
+            <div class="career-icon">
+                🎯
+            </div>
+
+        </div>
+
+
+        <!-- SCORE -->
+
+        <div class="score-section">
+
+            <div class="score-circle">
+
+                <div class="score-inner">
+
+                    <span id="careerScore">
+                        0
+                    </span>
+
+                    <small>%</small>
+
+                    <label>
+                        MATCH
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div class="score-info">
+
+                <h3>
+                    Career Compatibility
+                </h3>
+
+                <p>
+                    Your assessment profile shows
+                    how closely your abilities and
+                    interests match this career.
+                </p>
+
+
+                <div class="score-line">
+
+                    <div class="score-line-fill"
+                         id="scoreBar">
+                    </div>
+
+                </div>
+
+                <span class="ai-confidence">
+                    ✨ AI calculated career compatibility
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         AI METRICS
+    ================================================== -->
+
+    <section class="metrics-grid">
+
+
+        <!-- INDUSTRY READINESS -->
+
+        <div class="metric-card">
+
+            <div class="metric-icon">
+                ⚡
+            </div>
+
+            <div>
+
+                <span>
+                    INDUSTRY READINESS
+                </span>
+
+                <h2>
+                    <span id="industryReadiness">
+                        0
+                    </span>%
+                </h2>
+
+            </div>
+
+
+            <div class="mini-progress">
+
+                <div id="readinessBar"></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- AI STATUS -->
+
+        <div class="metric-card">
+
+            <div class="metric-icon">
+                🧠
+            </div>
+
+            <div>
+
+                <span>
+                    AI PROFILE STATUS
+                </span>
+
+                <h2>
+                    Analyzed
+                </h2>
+
+            </div>
+
+            <p class="metric-description">
+                Career profile generated
+                successfully.
+            </p>
+
+        </div>
+
+
+
+        <!-- CAREER PATH -->
+
+        <div class="metric-card">
+
+            <div class="metric-icon">
+                🚀
+            </div>
+
+            <div>
+
+                <span>
+                    CAREER PATH
+                </span>
+
+                <h2>
+                    AI Guided
+                </h2>
+
+            </div>
+
+            <p class="metric-description">
+                Personalized career direction
+                available.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CAREER SCORES
+    ================================================== -->
+
+    <section class="glass-card">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    AI CAREER ANALYSIS
+                </span>
+
+                <h2>
+                    Career Compatibility Map
+                </h2>
+
+            </div>
+
+            <div class="heading-icon">
+                📊
+            </div>
+
+        </div>
+
+
+        <div id="careerScores"
+             class="career-scores">
+
+            Loading career scores...
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         AI INSIGHT
+    ================================================== -->
+
+    <section class="glass-card insight-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    ARTIFICIAL INTELLIGENCE INSIGHT
+                </span>
+
+                <h2>
+                    What Your Career DNA Says
+                </h2>
+
+            </div>
+
+            <div class="heading-icon">
+                🧬
+            </div>
+
+        </div>
+
+
+        <div class="ai-insight-box">
+
+            <div class="insight-ai">
+                🤖
+            </div>
+
+            <div>
+
+                <h3>
+                    AI Career Insight
+                </h3>
+
+                <p id="careerInsight">
+
+                    Your recommendation is being
+                    generated from your assessment
+                    profile.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         AI ROADMAP PREVIEW
+    ================================================== -->
+
+    <section class="glass-card">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    AI CAREER PLANNER
+                </span>
+
+                <h2>
+                    Your Suggested Journey
+                </h2>
+
+            </div>
+
+            <div class="heading-icon">
+                🗺️
+            </div>
+
+        </div>
+
+
+        <div class="roadmap">
+
+
+            <div class="roadmap-step active">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <div>
+
+                    <h3>
+                        Build Fundamentals
+                    </h3>
+
+                    <p>
+                        Strengthen programming,
+                        problem-solving and core
+                        technical concepts.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="roadmap-line"></div>
+
+
+
+            <div class="roadmap-step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <div>
+
+                    <h3>
+                        Develop Projects
+                    </h3>
+
+                    <p>
+                        Create practical projects
+                        and build your technical
+                        portfolio.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="roadmap-line"></div>
+
+
+
+            <div class="roadmap-step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <div>
+
+                    <h3>
+                        Internship & Placement
+                    </h3>
+
+                    <p>
+                        Prepare for internships,
+                        coding interviews and
+                        placement opportunities.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ACTIONS
+    ================================================== -->
+
+    <section class="action-section">
+
+        <button class="primary-button"
+                onclick="goDashboard()">
+
+            ← Dashboard
+
+        </button>
+
+
+        <button class="secondary-button"
+                onclick="retakeTest()">
+
+            ↻ Retake Assessment
+
+        </button>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FUTURISTIC AI CAREER CHATBOT
+===================================================== -->
+
+<div id="careerChatbot">
+
+    <!-- FLOATING AI BUTTON -->
+    <button
+            id="chatbotIcon"
+            type="button"
+            aria-label="Open Career DNA AI"
+            onclick="toggleChatbot()">
+
+        <span class="ai-glow"></span>
+        <span class="ai-icon">🤖</span>
+
+    </button>
+
+
+    <!-- CHAT WINDOW -->
+    <div id="chatWindow">
+
+        <!-- HEADER -->
+        <div class="chat-header">
+
+            <div class="chat-brand">
+
+                <div class="chat-ai-avatar">
+                    🤖
+                </div>
+
+                <div class="chat-brand-text">
+
+                    <strong>
+                        Career DNA AI
+                    </strong>
+
+                    <span>
+                        Personal AI Career Assistant
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                    type="button"
+                    class="chat-close"
+                    onclick="toggleChatbot()">
+
+                ✕
+
+            </button>
+
+        </div>
+
+
+        <!-- AI STATUS -->
+        <div class="ai-status">
+
+            <span class="status-dot"></span>
+
+            <span>
+                AI Assistant Online
+            </span>
+
+            <span class="status-pulse"></span>
+
+        </div>
+
+        <!-- AI MESSAGE AREA -->
+        <div
+                id="chatMessages"
+                class="chat-messages">
+
+            <!-- Welcome message -->
+            <div class="ai-message">
+
+                <div class="message-avatar">
+                    🤖
+                </div>
+
+                <div class="message-bubble">
+
+                    <div class="message-name">
+                        Career DNA AI
+                    </div>
+
+                    <div class="message-text">
+
+                        <p>
+                            Hello! 👋
+                        </p>
+
+                        <p>
+                            I analyzed your Career DNA assessment.
+                        </p>
+
+                        <p>
+                            I can help you with your career path,
+                            roadmap, skills, internships,
+                            placements and technologies.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUICK AI ACTIONS -->
+        <div class="quick-questions">
+
+            <button
+                    type="button"
+                    onclick="quickQuestion('What is my career path?')">
+
+                🎯 Career Path
+
+            </button>
+
+
+            <button
+                    type="button"
+                    onclick="quickQuestion('Give me a personalized career roadmap')">
+
+                🗺️ Roadmap
+
+            </button>
+
+
+            <button
+                    type="button"
+                    onclick="quickQuestion('What skills should I learn?')">
+
+                📚 Skills
+
+            </button>
+
+
+            <button
+                    type="button"
+                    onclick="quickQuestion('How can I get an internship?')">
+
+                🚀 Internship
+
+            </button>
+
+
+            <button
+                    type="button"
+                    onclick="quickQuestion('How should I prepare for placements?')">
+
+                💼 Placement
+
+            </button>
+
+        </div>
+
+
+        <!-- INPUT -->
+        <div class="chat-input-area">
+
+            <input
+                    type="text"
+                    id="message"
+                    placeholder="Ask Career DNA AI..."
+                    autocomplete="off"
+            >
+
+            <button
+                    type="button"
+                    id="sendButton"
+                    onclick="askCareerAI()">
+
+                ➤
+
+            </button>
+
+        </div>
+
+
+        <!-- FOOTER -->
+        <div class="chat-footer">
+
+            <span>
+                ✦ Powered by Career DNA AI
+            </span>
+
+            <span>
+                Secure AI Assistant
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="/js/result.js"></script>
+<script src="/js/career-chat.js"></script>
+
+</body>
+</html>
+</body>
+</html>
+
+</body>
+
+</html>
